@@ -145,10 +145,12 @@ position = Vector2(0, 1.5)
 shape = SubResource("CapsuleShape2D_t6o3d")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -115)
 limit_left = 0
 limit_top = 0
-limit_bottom = 0
+limit_smoothed = true
 position_smoothing_enabled = true
+rotation_smoothing_enabled = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_ukisy")

@@ -168,17 +168,18 @@ func check_and_play_animation():
 		$DoorNodes/Door1Trigger.visible = false
 		$DoorNodes/DoorTrigger12.visible = false
 
-	
 func _on_door_1_trigger_2_body_entered(_body):
 	print('trigger 2 activated')
 	$DoorNodes/DoorAnimation.play("door2")
 	$DoorNodes/Door1Trigger2.visible = false
  
-
+func _on_door_trigger_3_body_entered(body):
+	print('trigger 3 activated')
+	$DoorNodes/DoorAnimation.play("door3")
+	$DoorNodes/DoorTrigger3.visible = false
 #<--- Door Related Code ---->
 
 #<--- Teleportation Related Code ---->
-
 func _on_teleportation_body_entered(body):
 	if body is RigidBody2D:
 		print("Rigid Body Entered Teleportation!")
@@ -213,14 +214,24 @@ func _on_teleportation_2_body_entered(body):
 func _on_door_trigger_weight_body_entered(body):
 	if body.is_in_group("player") or body.is_in_group("boxes"):
 		$DoorWeight/DoorWeightAnimation.play("doorWeight1_enter")
-		$DoorWeight/AnimationTree.set("parameters/blend_position", Vector2(0.0, 1.0))  # doorWeight1_enter
 		
 
 func _on_door_trigger_weight_body_exited(body):
 	if body.is_in_group("player") or body.is_in_group("boxes"):
 		$DoorWeight/DoorWeightAnimation.play("doorWeight1_exit")
-		$DoorWeight/AnimationTree.set("parameters/blend_position", Vector2(0.0, -1.0))  # doorWeight1_exit
 
+
+
+
+func _on_door_trigger_weight_2_body_entered(body):
+	pass # Replace with function body.
+	
+	
 #<--- DoorWeight Related Code ---->
+
+
+
+
+
 
 
