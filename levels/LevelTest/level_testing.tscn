@@ -1,8 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5rqdn1b5itrk"]
+[gd_scene load_steps=15 format=3 uid="uid://b5rqdn1b5itrk"]
 
 [ext_resource type="Script" path="res://levels/LevelTest/level_testing.gd" id="1_f5y2o"]
 [ext_resource type="PackedScene" uid="uid://8tsdxyyikwsd" path="res://player/player.tscn" id="1_o0r5w"]
 [ext_resource type="Texture2D" uid="uid://c85ls4bn2wdt" path="res://assets/16x16 Robot Tileset v1.png" id="2_sdx33"]
+
+[sub_resource type="Environment" id="Environment_pg0se"]
+glow_enabled = true
+glow_hdr_scale = 4.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_t524x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u4fk5"]
 texture = ExtResource("2_sdx33")
@@ -1148,6 +1154,10 @@ _data = {
 
 [node name="LevelTesting" type="Node2D"]
 script = ExtResource("1_f5y2o")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pg0se")
+camera_attributes = SubResource("CameraAttributesPractical_t524x")
 
 [node name="Player" parent="." instance=ExtResource("1_o0r5w")]
 position = Vector2(96, 271)

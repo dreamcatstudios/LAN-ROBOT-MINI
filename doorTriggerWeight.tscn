@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://doorTriggerWeight.gd" id="1_ba7lq"]
 [ext_resource type="Texture2D" uid="uid://c85ls4bn2wdt" path="res://assets/16x16 Robot Tileset v1.png" id="1_ei3br"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tej03"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xt8ku"]
 size = Vector2(14, 4)
 
-[sub_resource type="Animation" id="Animation_ngyjq"]
+[sub_resource type="Animation" id="Animation_djmv1"]
 resource_name = "idle"
 length = 0.1
 tracks/0/type = "value"
@@ -34,7 +34,7 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_nc3jj"]
+[sub_resource type="Animation" id="Animation_bgkgh"]
 resource_name = "pressed"
 length = 0.1
 tracks/0/type = "value"
@@ -62,10 +62,10 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ekj0"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a87ec"]
 _data = {
-"idle": SubResource("Animation_ngyjq"),
-"pressed": SubResource("Animation_nc3jj")
+"idle": SubResource("Animation_djmv1"),
+"pressed": SubResource("Animation_bgkgh")
 }
 
 [node name="DoorTriggerWeight" type="Area2D"]
@@ -73,7 +73,7 @@ script = ExtResource("1_ba7lq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
-shape = SubResource("RectangleShape2D_tej03")
+shape = SubResource("RectangleShape2D_xt8ku")
 
 [node name="Idle" type="Sprite2D" parent="."]
 texture = ExtResource("1_ei3br")
@@ -88,12 +88,12 @@ region_rect = Rect2(112, 176, 16, 16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_7ekj0")
+"": SubResource("AnimationLibrary_a87ec")
 }
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_7ekj0")
+"": SubResource("AnimationLibrary_a87ec")
 }
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

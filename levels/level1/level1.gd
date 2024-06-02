@@ -19,7 +19,7 @@ func _ready():
 		# Start playing the animation automatically on the host
 		animation_player.play("platforms")
 		$RotatingLasers/RotatingLaser/AnimationPlayer.play("rotation")
-
+		
 func _on_player_connected(peer_id):
 	if multiplayer.is_server():
 		_spawn_player(peer_id)
@@ -113,6 +113,7 @@ func load_checkpoint():
 
 # Player Death Code
 func _on_death_area_body_entered(body):
+	print("Player dead af")
 	if body.is_in_group("player"):
 		print("death")
 		var player_id = int(str(body.name).replace("player_", ""))
@@ -221,13 +222,20 @@ func _on_door_trigger_weight_body_exited(body):
 		$DoorWeight/DoorWeightAnimation.play("doorWeight1_exit")
 
 
+func _on_door_trigger_weight_3_body_entered(body):
+	if body.is_in_group("player") or body.is_in_group("boxes"):
+		$DoorWeight/DoorWeightAnimation.play("doorWeight2_enter")
 
 
-func _on_door_trigger_weight_2_body_entered(body):
-	pass # Replace with function body.
+func _on_door_trigger_weight_3_body_exited(body):
+	if body.is_in_group("player") or body.is_in_group("boxes"):
+		$DoorWeight/DoorWeightAnimation.play("doorWeight2_exit")
+	
 	
 	
 #<--- DoorWeight Related Code ---->
+
+
 
 
 
