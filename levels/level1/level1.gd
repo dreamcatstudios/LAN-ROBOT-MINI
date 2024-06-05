@@ -211,17 +211,20 @@ func _on_teleportation_2_body_entered(body):
 #<--- Teleportation Related Code ---->
 
 
-#<--- DoorWeight Related Code ---->
+#<--- DoorWeight Related Code ---->		
+
+
 func _on_door_trigger_weight_body_entered(body):
 	if body.is_in_group("player") or body.is_in_group("boxes"):
-		$DoorWeight/DoorWeightAnimation.play("doorWeight1_enter")
-		
+		$DoorWeight/DoorWeightAnimation.play("doorWeight1_enter");
+	
 
 func _on_door_trigger_weight_body_exited(body):
 	if body.is_in_group("player") or body.is_in_group("boxes"):
-		$DoorWeight/DoorWeightAnimation.play("doorWeight1_exit")
-
-
+		$DoorWeight/DoorWeightAnimation.play("doorWeight1_exit");
+		
+		
+		
 func _on_door_trigger_weight_3_body_entered(body):
 	if body.is_in_group("player") or body.is_in_group("boxes"):
 		$DoorWeight/DoorWeightAnimation.play("doorWeight2_enter")
@@ -234,6 +237,27 @@ func _on_door_trigger_weight_3_body_exited(body):
 	
 	
 #<--- DoorWeight Related Code ---->
+
+
+
+#<--- DoorWeight Lazer Related Code ---->
+
+func _on_lazer_trigger_weight_body_entered(body):
+	if body.is_in_group("player") or body.is_in_group("boxes"):
+		$LazerWeights/Laser.set_scale(Vector2.ZERO)
+
+
+func _on_lazer_trigger_weight_body_exited(body):
+	if body.is_in_group("player") or body.is_in_group("boxes"):
+		$LazerWeights/Laser.set_scale(Vector2(2, 1))
+		
+
+#<--- DoorWeight Lazer Related Code ---->
+
+
+
+
+
 
 
 
