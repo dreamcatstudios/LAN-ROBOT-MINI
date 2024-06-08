@@ -178,6 +178,12 @@ func _on_door_trigger_3_body_entered(body):
 	print('trigger 3 activated')
 	$DoorNodes/DoorAnimation.play("door3")
 	$DoorNodes/DoorTrigger3.visible = false
+	
+func _on_door_trigger_4_body_entered(body):
+	print('trigger 3 activated')
+	$DoorNodes/DoorAnimation.play("door4")
+	$DoorNodes/DoorTrigger4.visible = false
+
 #<--- Door Related Code ---->
 
 #<--- Teleportation Related Code ---->
@@ -208,6 +214,31 @@ func _on_teleportation_2_body_entered(body):
 		body.global_position = $Teleportation/teleportation.global_position + Vector2(40, 0)
 		$Teleportation/teleportation/TeleportSound.play()
 
+
+func _on_teleportation_3_body_entered(body):
+	if body is RigidBody2D:
+		print("Rigid Body Entered Teleportation!")
+		# Teleport the body using set_deferred
+		body.set_deferred("global_position", $Teleportation/teleportation4.global_position + Vector2(50, 0))
+		body.set_deferred("linear_velocity", Vector2.ZERO)
+		$Teleportation/teleportation4/TeleportSound.play()
+	elif body is CharacterBody2D:
+		print("Character Body Entered Teleportation!")
+		body.global_position = $Teleportation/teleportation4.global_position + Vector2(40, 0)
+		$Teleportation/teleportation4/TeleportSound.play()
+		
+func _on_teleportation_4_body_entered(body):
+	if body is RigidBody2D:
+		print("Rigid Body Entered Teleportation!")
+		
+		# Teleport the body using set_deferred
+		body.set_deferred("global_position", $Teleportation/teleportation3.global_position + Vector2(50, 0))
+		body.set_deferred("linear_velocity", Vector2.ZERO)
+		$Teleportation/teleportation3/TeleportSound.play()
+	elif body is CharacterBody2D:
+		print("Character Body Entered Teleportation!")
+		body.global_position = $Teleportation/teleportation3.global_position + Vector2(40, 0)
+		$Teleportation/teleportation3/TeleportSound.play()
 #<--- Teleportation Related Code ---->
 
 
@@ -253,17 +284,6 @@ func _on_lazer_trigger_weight_body_exited(body):
 		
 
 #<--- DoorWeight Lazer Related Code ---->
-
-
-
-
-
-
-
-
-
-
-
 
 
 
